@@ -32,5 +32,4 @@ SECRET_KEY = Секретный ключ</i><br>
 
 Авторы:
 <b>Дмитрий Венде</b><br>
-https://github.com/Vende1337/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
-![example branch parameter](https://github.com/Vende1337/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![branch parameter](https://github.com/Vende1337/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
