@@ -25,7 +25,10 @@ jobs:
         python -m flake8
         pytest
 
-        
+on:
+    branches:    
+      - 'master'
+jobs:      
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -63,7 +66,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            cd home/vende/
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
@@ -85,4 +87,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!                      
+          message: ${{ github.workflow }} успешно выполнен!    
