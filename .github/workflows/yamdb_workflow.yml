@@ -1,8 +1,10 @@
 name: yamdb-app workflow
 
 on:
+  push: 
     branches:    
       - 'master'
+
 
 jobs:
   tests:
