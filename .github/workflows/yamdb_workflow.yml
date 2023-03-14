@@ -1,14 +1,10 @@
 name: yamdb-app workflow
 
-on:
-  push: 
-    branches:    
-      - 'master'
-
+on: [push]
 
 jobs:
   tests:
-    runs-on: ubntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -27,13 +23,14 @@ jobs:
     - name: Test with flake8 and django tests
       run: |
         python -m flake8
-        pytest
-   
-   
+        pytest  
+
+     
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     needs: tests
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Check out the repo
     
@@ -58,6 +55,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
