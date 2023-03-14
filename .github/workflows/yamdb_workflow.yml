@@ -75,6 +75,7 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             sudo docker pull vende/yandbd:v1.00
+            cd home/vende/
             sudo docker-compose up -d  
             
 
