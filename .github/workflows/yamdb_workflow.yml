@@ -1,9 +1,7 @@
 name: yamdb-app workflow
 
-on:
-  push: 
-    branches:    
-      - 'master'
+
+on: [push]
 
 jobs:
   tests:
@@ -28,6 +26,11 @@ jobs:
         python -m flake8
         pytest
 
+on:
+  push: 
+    branches:    
+      - 'master'
+jobs:      
      
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
